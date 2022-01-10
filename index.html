@@ -3,13 +3,13 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-	<title>Androme DAO</title>
+	<title>ANDROME DAO($HELIOS) LBE</title>
 	<link rel="stylesheet" type="text/css" href="style.css?5">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/25c51d0b7a.js" crossorigin="anonymous"></script>
-	<link rel="icon" href="images/logo/perfect1.png"> 
+	<link rel="icon" href="images/logo/logo.png"> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 	<script src="./bignumber.min.js"></script>
@@ -37,14 +37,14 @@
 		
 
 			<div class="text-box-wrapper">
-				<h1><img src="./images/logo.png" alt="Androme DAO's HELIOS" height="250" width="250"></h1>
+				<h1><img src="./images/logo.png" alt="ANDROME DAO HELIOS" height="250" width="250"></h1>
 				<div class="text-box">
 					<p>You hold the key to enter the Androme DAO!</p>
 					<p>Please enter! You have proven your worth, Pleb; Vigilant, Steadfast, and True, you have built and grown with us.</p>
 					<p>The Androme DAO welcomes you, just as you have welcomed others.</p>
 					<p>Deposit your METIS into the HELIOS vault. You will be able to claim your <strong>$HELIOS</strong> at the beginning of our Grand Launch Ceremony.</p>
 					<p style="margin-bottom: 3rem;">Stand strong, Selenians.</p>
-					<!-- <p>Deposit your MIM in exchange for FORT tokens.<br>Your Tokens will be available for claim just after the LBE.<br></p> -->
+					<!-- <p>Deposit your METIS in exchange for HELIOS tokens.<br>Your Tokens will be available for claim just after the LBE.<br></p> -->
 					<div class="text-center">
 						<a class="hero-btn2 connect-btn" @click.prevent="connect" v-if="!account">Connect to MetaMask</a>	
 					</div>
@@ -64,11 +64,11 @@
 								<div id="deposit-box" v-show="mim.approved && presale.amountBuyable > 0">
 									<div class="deposit-box-details">
 										<div>Max METIS: <a style="color:inherit;" href="#" @click.prevent="amountToDeposit = currentMaxPerAccountRounded">{{ currentMaxPerAccountRounded }}</a></div>
-										<div>Price: 5 MIM / FORT</div>
+										<div>Price: 5 METIS / HELIOS</div>
 									</div>
 									<div class="input-container">
 										<input type="number" step="1" min="0" :max="currentMaxPerAccountRounded" placeholder="MIM Amount" v-model.number="amountToDeposit"/>
-										<a class="hero-btn" @click.prevent="deposit" :class="'deposit-btn ' + (amountToDeposit <= 0 ? 'disabled' : '')"><span>Deposit {{ amountToDeposit ? amountToDepositRounded : '0' }} MIM </span><img src="images/logo/mim2.ico" height="20" width="20"></a>
+										<a class="hero-btn" @click.prevent="deposit" :class="'deposit-btn ' + (amountToDeposit <= 0 ? 'disabled' : '')"><span>Deposit {{ amountToDeposit ? amountToDepositRounded : '0' }} METIS </span><img src="images/logo/mim2.ico" height="20" width="20"></a>
 									</div>
 								</div>
 							</div>
@@ -86,11 +86,11 @@
 								The sale is not opened
 							</div>
 							<div v-if="presale.deposited > 0">
-								<div v-if="presale.fortAddress != '0x0000000000000000000000000000000000000000'" class="text-center claim-container">
+								<div v-if="presale.heliosAddress != '0x0000000000000000000000000000000000000000'" class="text-center claim-container">
 									<a class="hero-btn" href="#" @click.prevent="claim">Claim {{ Math.round(presale.deposited * 100) / 100 }} HELIOS</a>
 								</div>
 								<div v-else class="text-center claim-container">
-									<a class="hero-btn disabled" href="#" title="Your Tokens will be available for claim just after the LBE." @click.prevent>Claim {{ Math.round(presale.deposited * 100) / 100 }} FORT</a>
+									<a class="hero-btn disabled" href="#" title="Your Tokens will be available for claim just after the LBE." @click.prevent>Claim {{ Math.round(presale.deposited * 100) / 100 }} HELIOS</a>
 								</div>
 							</div>
 						</div>
@@ -142,7 +142,7 @@
 				web3: null,
 
 				account: null,
-				fortDecimals: 9,
+				heliosDecimals: 18,
 				amountToDeposit: '',
 
 				mim: {
@@ -157,13 +157,13 @@
 				presale: {
 					address: '0x82756cb8B251bfB10Acd7931756a1edb7f253850',
 					contract: null,
-					abi: [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[],"name":"FORT","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_PRESALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_SOLD","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MIN_PRESALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"OLD_CONTRACT_ADDRESS","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"activatePrivateSale","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"buyer","type":"address"}],"name":"amountBuyable","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newBuyer_","type":"address"}],"name":"approveBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"newBuyers_","type":"address[]"}],"name":"approveBuyers","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"approvedBuyers","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"badBuyer_","type":"address"}],"name":"blacklistBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"badBuyers_","type":"address[]"}],"name":"blacklistBuyers","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"blacklisted","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"buyFORT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"claimFORT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"claimed","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"deactivatePrivateSale","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newBuyer_","type":"address"}],"name":"deapproveBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dev","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"invested","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"fort","type":"address"}],"name":"setClaimingActive","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_soldAmount","type":"uint256"}],"name":"setSold","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"sold","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_token","type":"address"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+					abi: [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[],"name":"HELIOS","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_PRESALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_SOLD","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MIN_PRESALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"OLD_CONTRACT_ADDRESS","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"activatePrivateSale","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"buyer","type":"address"}],"name":"amountBuyable","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newBuyer_","type":"address"}],"name":"approveBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"newBuyers_","type":"address[]"}],"name":"approveBuyers","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"approvedBuyers","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"badBuyer_","type":"address"}],"name":"blacklistBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"badBuyers_","type":"address[]"}],"name":"blacklistBuyers","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"blacklisted","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"buyHELIOS","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"claimHELIOS","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"claimed","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"deactivatePrivateSale","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newBuyer_","type":"address"}],"name":"deapproveBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dev","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"invested","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"helios","type":"address"}],"name":"setClaimingActive","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_soldAmount","type":"uint256"}],"name":"setSold","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"sold","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_token","type":"address"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}],
 				},
 
 				oldPresale: {
 					address: '0xaaf9a29c6beaa9e3e4715c4698be8830226454fa',
 					contract: null,
-					abi: [{"inputs":[{"internalType":"address","name":"_dev","type":"address"},{"internalType":"uint256","name":"_presaleTimestamp","type":"uint256"},{"internalType":"address","name":"mim_address","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[],"name":"FORT","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_PRESALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_SALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_SOLD","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"buyer","type":"address"}],"name":"amountBuyable","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newBuyer_","type":"address"}],"name":"approveBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"newBuyers_","type":"address[]"}],"name":"approveBuyers","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"approvedBuyers","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"buyFORT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"claimFORT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dev","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getCurrentTimestamp","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"invested","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isPresale","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isPublicSale","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"fort","type":"address"}],"name":"setClaimingActive","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"sold","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_token","type":"address"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+					abi: [{"inputs":[{"internalType":"address","name":"_dev","type":"address"},{"internalType":"uint256","name":"_presaleTimestamp","type":"uint256"},{"internalType":"address","name":"mim_address","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[],"name":"Helios","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_PRESALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_SALE_PER_ACCOUNT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"MAX_SOLD","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"buyer","type":"address"}],"name":"amountBuyable","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newBuyer_","type":"address"}],"name":"approveBuyer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"newBuyers_","type":"address[]"}],"name":"approveBuyers","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"approvedBuyers","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"buyHelios","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"claimHelios","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dev","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getCurrentTimestamp","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"invested","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isPresale","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isPublicSale","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"helios","type":"address"}],"name":"setClaimingActive","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"sold","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_token","type":"address"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}],
 				},
 
 				maxUint: null,
@@ -186,20 +186,20 @@
 					const price = this.toBN(this.presale.price)
 					const max = this.toBN(this.presale.maxPreSalePerAccount)
 
-					const fortPow = this.toBN(10).pow(this.toBN(this.fortDecimals))
+					const heliosPow = this.toBN(10).pow(this.toBN(this.heliosDecimals))
 					const mimPow = this.toBN(10).pow(this.toBN(this.mim.decimals))
 
-					const amountFortBuyable = this.presale.amountBuyable
+					const amountHeliosBuyable = this.presale.amountBuyable
 					let amountMimDepositable = 0
-					if (amountFortBuyable == 0) {
+					if (amountHeliosBuyable == 0) {
 						amountMimDepositable = 0;
 					} else {
-						amountMimDepositable = this.toBN(amountFortBuyable).times(price).div(mimPow.div(fortPow)).toNumber()
+						amountMimDepositable = this.toBN(amountHeliosBuyable).times(price).div(mimPow.div(heliosPow)).toNumber()
 					}
 
 					return amountMimDepositable;
 
-					return max.times(price).div(mimPow.div(fortPow)).toNumber()
+					return max.times(price).div(mimPow.div(heliosPow)).toNumber()
 				},
 				tinyAccount () {
 					if ( ! this.account) {
@@ -289,7 +289,7 @@
 				},
 				async fetchSold () {
 					this.presale.contract.methods.sold().call().then((sold) => {
-						Vue.set(this.presale, 'sold', parseFloat(this.applyDecimals(sold, this.fortDecimals)))
+						Vue.set(this.presale, 'sold', parseFloat(this.applyDecimals(sold, this.heliosDecimals)))
 					})
 				},
 				async fetchSaleInfos () {
@@ -297,19 +297,19 @@
 						Promise.all([
 							this.presale.contract.methods.PRICE().call(),
 							this.presale.contract.methods.MAX_PRESALE_PER_ACCOUNT().call().then((val) => {
-								return parseFloat(this.applyDecimals(val, this.fortDecimals))
+								return parseFloat(this.applyDecimals(val, this.heliosDecimals))
 							}),
 							this.presale.contract.methods.amountBuyable(this.account).call().then((val) => {
-								return parseFloat(this.applyDecimals(val, this.fortDecimals))
+								return parseFloat(this.applyDecimals(val, this.heliosDecimals))
 							}),
 							this.presale.contract.methods.approvedBuyers(this.account).call(),
 							this.presale.contract.methods.MAX_SOLD().call().then((maxSold) => {
-								return parseFloat(this.applyDecimals(maxSold, this.fortDecimals))
+								return parseFloat(this.applyDecimals(maxSold, this.heliosDecimals))
 							}),
 							this.presale.contract.methods.sold().call().then((sold) => {
-								return parseFloat(this.applyDecimals(sold, this.fortDecimals))
+								return parseFloat(this.applyDecimals(sold, this.heliosDecimals))
 							}),
-							this.presale.contract.methods.FORT().call(),
+							this.presale.contract.methods.HELIOS().call(),
 						]).then((infos) => {
 							Vue.set(this.presale, 'price', infos[0])
 							Vue.set(this.presale, 'maxPreSalePerAccount', infos[1])
@@ -317,14 +317,14 @@
 							Vue.set(this.presale, 'isWhitelisted', infos[3])
 							Vue.set(this.presale, 'maxSold', infos[4])
 							Vue.set(this.presale, 'sold', infos[5])
-							Vue.set(this.presale, 'fortAddress', infos[6])
+							Vue.set(this.presale, 'heliosAddress', infos[6])
 							resolve()
 						})
 					})
 				},
 				async fetchAllowance () {
-					const buyableFort = this.toBN(this.removeDecimals(this.presale.amountBuyable, this.fortDecimals))
-					const mustBeApproved = buyableFort.times(this.presale.price)
+					const buyableHelios = this.toBN(this.removeDecimals(this.presale.amountBuyable, this.heliosDecimals))
+					const mustBeApproved = buyableHelios.times(this.presale.price)
 					const approved = await this.mim.contract.methods.allowance(this.account, this.presale.address).call()
 					this.mim.approved = this.toBN(approved).gte(mustBeApproved)
 				},
@@ -336,7 +336,7 @@
 					const oldValue = await this.oldPresale.contract.methods.invested(this.account).call()
 					const newValue = await this.presale.contract.methods.invested(this.account).call()
 					const value = Math.max(oldValue, newValue);
-					Vue.set(this.presale, 'deposited', this.applyDecimals(value, this.fortDecimals))
+					Vue.set(this.presale, 'deposited', this.applyDecimals(value, this.heliosDecimals))
 				},
 				toBN (val) {
 					return new BigNumber(val)
@@ -352,8 +352,8 @@
 					return new BigNumber(val).div(new BigNumber(10).pow(new BigNumber(decimals))).toString()
 				},
 				async approve () {
-					const maxFort = this.toBN(this.removeDecimals(this.presale.maxPreSalePerAccount, this.fortDecimals))
-					const mimAmount = maxFort.times(this.presale.price).toFixed(0)
+					const maxHelios = this.toBN(this.removeDecimals(this.presale.maxPreSalePerAccount, this.heliosDecimals))
+					const mimAmount = maxHelios.times(this.presale.price).toFixed(0)
 
 					this.sendTx({
 						to: this.mim.address,
@@ -374,19 +374,19 @@
 				},
 				async deposit () {
 					const mimToDeposit = this.toBN(this.removeDecimals(this.amountToDeposit, this.mim.decimals))
-					const fortToDeposit = mimToDeposit.div(this.toBN(this.presale.price)).toFixed(0)
-					const fortToDepositReadable = this.applyDecimals(fortToDeposit, this.fortDecimals)
+					const heliosToDeposit = mimToDeposit.div(this.toBN(this.presale.price)).toFixed(0)
+					const helioToDepositReadable = this.applyDecimals(heliosToDeposit, this.heliosDecimals)
 
 					this.sendTx({
 						to: this.presale.address,
 						data: this.web3.eth.abi.encodeFunctionCall({
-							name: 'buyFORT',
+							name: 'buyHelios',
 							type: 'function',
 							inputs: [{
 								type: 'uint256',
 								name: 'amount'
 							}]
-						}, [fortToDeposit])
+						}, [heliosToDeposit])
 					}).then(() => {
 						this.amountToDeposit = ''
 					})
@@ -394,7 +394,7 @@
 				async claim () {
 					this.sendTx({
 						to: this.presale.address,
-						data: this.web3.eth.abi.encodeFunctionSignature('claimFORT()')
+						data: this.web3.eth.abi.encodeFunctionSignature('claimHelios()')
 					}).then(() => {
 						this.fetchDeposited()
 					})
